@@ -10,7 +10,15 @@ export const Header = () => {
           alt="Badan Gizi Nasional"
           width={1000}
           height={0}
-          className="w-30 h-auto"
+          className="w-35 h-auto"
+          priority
+        />
+        <Image
+          src={"/logo_yayasan.png"}
+          alt="Yayasan Always Be Positive"
+          width={1000}
+          height={0}
+          className="w-20 h-auto"
           priority
         />
       </Container>
