@@ -142,7 +142,7 @@ export const history: HistoryType[] = [
     wed: "2741",
     thu: "2741",
     fri: "2741",
-    sat: "2741",
+    sat: "Libur",
   },
 ];
 
