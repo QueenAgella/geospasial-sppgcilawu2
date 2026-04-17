@@ -1,4 +1,3 @@
-import { Prose } from "@/components/ds";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
@@ -11,12 +10,36 @@ import {
 } from "@/components/ui/table";
 import { history } from "@/lib/history";
 
+type HistoryItem = {
+  week: string;
+  mon: string;
+  tue: string;
+  wed: string;
+  thu: string;
+  fri: string;
+  sat: string;
+};
+
 export const History = () => {
+  const isLibur = (value?: string): boolean => {
+    return value?.toLowerCase().includes("libur") ?? false;
+  };
+
+  const days: (keyof HistoryItem)[] = [
+    "mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri",
+    "sat",
+  ];
+
   return (
     <Card>
       <CardContent className="space-y-4">
         <Table>
           <TableCaption>Riwayat Jumlah Penerima Manfaat.</TableCaption>
+
           <TableHeader>
             <TableRow>
               <TableHead>Tanggal</TableHead>
@@ -28,52 +51,22 @@ export const History = () => {
               <TableHead>Sabtu</TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
-            {history.map((item, index) => (
+            {history.map((item: HistoryItem, index: number) => (
               <TableRow key={index}>
                 <TableCell>{item.week}</TableCell>
-                <TableCell
-                  className={
-                    item.mon.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.mon}
-                </TableCell>
-                <TableCell
-                  className={
-                    item.tue.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.tue}
-                </TableCell>
-                <TableCell
-                  className={
-                    item.wed.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.wed}
-                </TableCell>
-                <TableCell
-                  className={
-                    item.thu.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.thu}
-                </TableCell>
-                <TableCell
-                  className={
-                    item.fri.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.fri}
-                </TableCell>
-                <TableCell
-                  className={
-                    item.sat.toLowerCase() === "libur" ? "text-red-500" : ""
-                  }
-                >
-                  {item.sat}
-                </TableCell>
+
+                {days.map((day) => (
+                  <TableCell
+                    key={day}
+                    className={
+                      isLibur(item[day]) ? "text-red-500 font-medium" : ""
+                    }
+                  >
+                    {item[day]}
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>
