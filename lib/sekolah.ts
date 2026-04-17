@@ -13,7 +13,7 @@ export type SekolahType = {
 
 export const sekolah: SekolahType[] = [
   {
-    geocode: [-7.274400000000, 107.921400000000],
+    geocode: [-7.2744, 107.9214],
     category: "PAUD/TK/RA",
     name: "KOBER AL - QOMARIYAH",
     alamat: "Kp. Cikadu RT 01/07, Ds. Cilawu",
@@ -55,7 +55,7 @@ export const sekolah: SekolahType[] = [
   {
     geocode: [-7.281442630368211, 107.92190005548501], 
     category: "SD/MI",
-    name: "SDN 2 Cilawu",
+    name: "SDN 2 CILAWU",
     alamat: "Kp. Cigasong, Ds. Cilawu",
     total_pm: 180,
     total_guru: 11,
@@ -91,5 +91,5 @@ export const sekolah: SekolahType[] = [
     total_guru: 143,
     pk: 0,
     pb: 2176,
-  },
+  }
 ];
